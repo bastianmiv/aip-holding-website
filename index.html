@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AIP Holding, Inc.</title>
+<meta name="description" content="AIP Holding, Inc. — Aviation Intelligence Platform. Delaware C-Corporation." />
+<meta name="robots" content="noindex, nofollow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     AIP — single-page brand chrome
+     Tokens lifted from colors_and_type.css (design system v2)
+     Tiempos licensed via Klim Type Foundry web license.
+     ============================================================ */
+
+  /* --- Tiempos (web-licensed) --- */
+  @font-face {
+    font-family: "Tiempos Headline";
+    font-weight: 600;
+    font-style: normal;
+    src: url("fonts/tiempos-headline-web-semibold.woff2") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Tiempos Text";
+    font-weight: 400;
+    font-style: normal;
+    src: url("fonts/tiempos-text-web-regular.woff2") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Tiempos Text";
+    font-weight: 400;
+    font-style: italic;
+    src: url("fonts/tiempos-text-web-regular-italic.woff2") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Tiempos Text";
+    font-weight: 600;
+    font-style: normal;
+    src: url("fonts/tiempos-text-web-semibold.woff2") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Tiempos Text";
+    font-weight: 600;
+    font-style: italic;
+    src: url("fonts/tiempos-text-web-semibold-italic.woff2") format("woff2");
+    font-display: swap;
+  }
+  :root {
+    --core:           #1B2638;
+    --core-deep:      #0F1825;
+    --core-mid:       #2C3A50;
+    --rust:           #B8533A;
+    --rust-deep:      #8E3A24;
+    --amber:          #D89548;
+    --petrol:         #2C5969;
+    --paper:          #FBF9F4;
+    --paper-soft:     #F2EEE5;
+    --paper-warm:     #F6E9D6;
+    --paper-cool:     #EAEEF1;
+    --gray-1:         #E4E1D8;
+    --gray-2:         #C7C3B7;
+    --gray-3:         #948D7E;
+    --gray-4:         #635D52;
+    --gray-5:         #3F3A33;
+    --ink:            #1B2638;
+
+    --font-display:   "Tiempos Headline", Georgia, serif;
+    --font-serif:     "Tiempos Text", Georgia, serif;
+    --font-sans:      "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    --font-mono:      "IBM Plex Mono", Consolas, Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.55;
+    font-feature-settings: "tnum", "lnum", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ============================================================
+     PAGE STRUCTURE — letter-style chrome scaled to viewport
+     ============================================================ */
+  .band {
+    height: 8px;
+    background: var(--rust);
+  }
+
+  .frame {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 32px clamp(28px, 5vw, 64px) 48px;
+    min-height: calc(100vh - 8px);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: clamp(56px, 9vh, 96px);
+  }
+
+  /* ============================================================
+     CHROME HEADER — wordmark + meta
+     ============================================================ */
+  .chrome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--core);
+  }
+
+  .wm {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .wm__sq {
+    display: flex;
+    gap: 3px;
+  }
+  .wm__sq span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: var(--core);
+  }
+  .wm__sq span:last-child {
+    width: 4px;
+    background: var(--rust);
+  }
+
+  .wm__text {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--core);
+  }
+
+  .chrome__meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-4);
+  }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1100px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 500;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "§";
+    font-family: var(--font-serif);
+    font-size: 14px;
+    color: var(--rust);
+    letter-spacing: 0;
+  }
+
+  h1.display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(44px, 7.2vw, 92px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    color: var(--core);
+    max-width: 14ch;
+    margin-bottom: 36px;
+  }
+  h1.display em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 600;
+    color: var(--rust);
+  }
+
+  .lede {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(19px, 1.8vw, 23px);
+    line-height: 1.4;
+    color: var(--gray-5);
+    max-width: 48ch;
+    margin-bottom: 56px;
+  }
+
+  /* ============================================================
+     FACTS — KPI-row pattern
+     2px core top rule, tabular value, mono label
+     ============================================================ */
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0;
+    border-top: 2px solid var(--core);
+  }
+
+  .fact {
+    padding: 18px 24px 18px 0;
+    border-right: 1px solid var(--gray-2);
+  }
+  .fact:last-child { border-right: none; }
+
+  .fact__label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-4);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .fact__value {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.15;
+    color: var(--core);
+    letter-spacing: -0.015em;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  /* ============================================================
+     FOOTER SLUG — hairline rule + meta row
+     ============================================================ */
+  footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: end;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-4);
+    line-height: 1.7;
+  }
+
+  footer .addr {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--gray-5);
+    line-height: 1.55;
+    max-width: 36ch;
+  }
+
+  footer .right {
+    text-align: right;
+  }
+
+  footer a {
+    color: var(--core);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gray-2);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  footer a:hover {
+    color: var(--rust);
+    border-bottom-color: var(--rust);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  @media (max-width: 720px) {
+    .chrome {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .fact {
+      border-right: none;
+      border-bottom: 1px solid var(--gray-2);
+      padding: 14px 0;
+    }
+    .fact:last-child { border-bottom: none; }
+    footer {
+      grid-template-columns: 1fr;
+    }
+    footer .right {
+      text-align: left;
+    }
+  }
+
+  /* ============================================================
+     LOAD ANIMATION — restrained, staggered reveal
+     ============================================================ */
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .chrome    { animation: reveal 0.8s ease 0.0s both; }
+  .eyebrow   { animation: reveal 0.8s ease 0.15s both; }
+  h1.display { animation: reveal 0.9s ease 0.3s both; }
+  .lede      { animation: reveal 0.9s ease 0.5s both; }
+  .facts     { animation: reveal 0.9s ease 0.7s both; }
+  footer     { animation: reveal 0.8s ease 0.9s both; }
+</style>
+</head>
+
+<body>
+
+  <div class="band" aria-hidden="true"></div>
+
+  <div class="frame">
+
+    <header class="chrome">
+      <div class="wm">
+        <div class="wm__sq" aria-hidden="true">
+          <span></span><span></span>
+        </div>
+        <span class="wm__text">AIP</span>
+      </div>
+      <div class="chrome__meta">
+        Aviation Intelligence Platform · 2026
+      </div>
+    </header>
+
+    <main>
+      <div class="eyebrow">AIP Holding, Inc. · Delaware</div>
+
+      <h1 class="display">
+        Data infrastructure for <em>business aviation.</em>
+      </h1>
+
+      <p class="lede">
+        AIP is building the data and intelligence layer for
+        Business Aviation. The product is in development with
+        a small group of design partners.
+      </p>
+
+      <div class="facts">
+        <div class="fact">
+          <div class="fact__label">Entity</div>
+          <div class="fact__value">Delaware C-Corp</div>
+        </div>
+        <div class="fact">
+          <div class="fact__label">Sector</div>
+          <div class="fact__value">Business aviation</div>
+        </div>
+        <div class="fact">
+          <div class="fact__label">Stage</div>
+          <div class="fact__value">Pre-seed</div>
+        </div>
+        <div class="fact">
+          <div class="fact__label">Founded</div>
+          <div class="fact__value">2026</div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="addr">
+        AIP Holding, Inc.<br />
+        251 Little Falls Drive<br />
+        Wilmington, DE 19808<br />
+        United States
+      </div>
+      <div class="right">
+        <a href="mailto:contact@aipholdinginc.com">contact@aipholdinginc.com</a><br />
+        © 2026 AIP Holding, Inc.
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

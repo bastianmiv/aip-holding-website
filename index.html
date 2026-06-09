@@ -37,408 +37,314 @@
 <meta name="twitter:image:alt" content="AIP Holding, Inc. — Data infrastructure for business aviation" />
 
 <!-- Theme color for mobile browsers -->
-<meta name="theme-color" content="#FBF9F4" />
+<meta name="theme-color" content="#E7EAEE" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
 <style>
   /* ============================================================
-     AIP — single-page brand chrome
-     Tokens lifted from colors_and_type.css (design system v2)
-     Tiempos licensed via Klim Type Foundry web license.
+     AIP — OPS BOARD
+     A monospace flight-ops aesthetic: Zulu time, telex header,
+     flight progress strips. Deliberately NOT editorial-paper.
      ============================================================ */
-
-  /* --- Tiempos (web-licensed) --- */
-  @font-face {
-    font-family: "Tiempos Headline";
-    font-weight: 600;
-    font-style: normal;
-    src: url("fonts/tiempos-headline-web-semibold.woff2") format("woff2");
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Tiempos Text";
-    font-weight: 400;
-    font-style: normal;
-    src: url("fonts/tiempos-text-web-regular.woff2") format("woff2");
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Tiempos Text";
-    font-weight: 400;
-    font-style: italic;
-    src: url("fonts/tiempos-text-web-regular-italic.woff2") format("woff2");
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Tiempos Text";
-    font-weight: 600;
-    font-style: normal;
-    src: url("fonts/tiempos-text-web-semibold.woff2") format("woff2");
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Tiempos Text";
-    font-weight: 600;
-    font-style: italic;
-    src: url("fonts/tiempos-text-web-semibold-italic.woff2") format("woff2");
-    font-display: swap;
-  }
   :root {
-    --core:           #1B2638;
-    --core-deep:      #0F1825;
-    --core-mid:       #2C3A50;
-    --rust:           #B8533A;
-    --rust-deep:      #8E3A24;
-    --amber:          #D89548;
-    --petrol:         #2C5969;
-    --paper:          #FBF9F4;
-    --paper-soft:     #F2EEE5;
-    --paper-warm:     #F6E9D6;
-    --paper-cool:     #EAEEF1;
-    --gray-1:         #E4E1D8;
-    --gray-2:         #C7C3B7;
-    --gray-3:         #948D7E;
-    --gray-4:         #635D52;
-    --gray-5:         #3F3A33;
-    --ink:            #1B2638;
-
-    --font-display:   "Tiempos Headline", Georgia, serif;
-    --font-serif:     "Tiempos Text", Georgia, serif;
-    --font-sans:      "IBM Plex Sans", system-ui, -apple-system, sans-serif;
-    --font-mono:      "IBM Plex Mono", Consolas, Menlo, monospace;
+    --core:      #1B2638;
+    --core-deep: #0F1825;
+    --petrol:    #2C5969;
+    --rust:      #B8533A;
+    --amber:     #C9881F;
+    --bg:        #E7EAEE;   /* cool instrument grey, not warm cream */
+    --panel:     #F4F6F8;
+    --panel-2:   #FBFCFD;
+    --line:      #1B2638;
+    --line-soft: #B7BFC9;
+    --muted:     #5B6675;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, Menlo, monospace;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; }
 
   body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--font-sans);
-    font-size: 17px;
-    line-height: 1.55;
-    font-feature-settings: "tnum", "lnum", "ss01";
+    background: var(--bg);
+    /* faint instrument-panel grid */
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: -1px -1px;
+    color: var(--core);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    font-feature-settings: "tnum", "zero";
   }
-
-  /* ============================================================
-     PAGE STRUCTURE — letter-style chrome scaled to viewport
-     ============================================================ */
-  .band {
-    height: 8px;
-    background: var(--rust);
+  body::before {
+    /* tint the grid down so it reads as texture, not graph paper */
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    opacity: 0.86;
+    z-index: 0;
+    pointer-events: none;
   }
 
   .frame {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 24px clamp(28px, 5vw, 64px) 32px;
-  min-height: calc(100vh - 8px);
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: clamp(28px, 5vh, 72px);
-}
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: clamp(18px, 3vw, 34px) clamp(18px, 4vw, 56px) clamp(20px, 3vw, 36px);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: clamp(26px, 5vh, 60px);
+  }
 
-  /* ============================================================
-     CHROME HEADER — wordmark + meta
-     ============================================================ */
-  .chrome {
+  /* ---------- STATUS BAR ---------- */
+  .statusbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--core);
-  }
-
-  .wm {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .wm__sq {
-    display: flex;
-    gap: 3px;
-  }
-  .wm__sq span {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
+    gap: 16px;
+    padding: 10px 14px;
     background: var(--core);
+    color: #D7DCE3;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    flex-wrap: wrap;
   }
-  .wm__sq span:last-child {
-    width: 4px;
-    background: var(--rust);
+  .statusbar .wm { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 600; letter-spacing: 0.22em; }
+  .wm__sq { display: inline-flex; gap: 3px; }
+  .wm__sq i { width: 11px; height: 11px; background: #E7EAEE; display: inline-block; }
+  .wm__sq i:last-child { width: 4px; background: var(--rust); }
+  .statusbar .clock { display: flex; align-items: center; gap: 10px; color: #AEB6C0; }
+  .statusbar .clock b { color: #fff; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .live {
+    display: inline-flex; align-items: center; gap: 7px;
+    color: var(--amber);
   }
+  .live::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--amber);
+    animation: blink 1.6s step-start infinite;
+  }
+  @keyframes blink { 50% { opacity: 0.15; } }
 
-  .wm__text {
-    font-family: var(--font-sans);
-    font-size: 16px;
+  /* ---------- MAIN / TELEX ---------- */
+  main { align-self: center; }
+
+  .telex-hd {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 12px; letter-spacing: 0.1em;
+    color: var(--muted);
+    padding-bottom: 14px;
+    margin-bottom: 26px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .telex-hd .tag {
+    background: var(--core); color: #fff;
+    padding: 3px 9px; letter-spacing: 0.14em; font-weight: 500;
+  }
+  .telex-hd .ok { color: var(--petrol); font-weight: 600; }
+
+  h1 {
+    font-family: var(--mono);
     font-weight: 600;
-    letter-spacing: 0.18em;
+    font-size: clamp(30px, 6vw, 62px);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
     color: var(--core);
+    margin-bottom: 26px;
   }
-
-  .chrome__meta {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gray-4);
-  }
-
-  /* ============================================================
-     HERO
-     ============================================================ */
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 1100px;
-  }
-
-  .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--rust);
-    font-weight: 500;
-    margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .eyebrow::before {
-    content: "§";
-    font-family: var(--font-serif);
-    font-size: 14px;
-    color: var(--rust);
-    letter-spacing: 0;
-  }
-
-  h1.display {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(40px, min(6.5vw, 11vh), 88px);
-  line-height: 1.0;
-  letter-spacing: -0.025em;
-  color: var(--core);
-  max-width: 18ch;
-  margin-bottom: 24px;
-}
-  h1.display em {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-weight: 600;
-    color: var(--rust);
+  h1 .cur {
+    display: inline-block;
+    width: 0.56em; height: 0.86em;
+    background: var(--rust);
+    transform: translateY(0.08em);
+    margin-left: 0.12em;
+    animation: blink 1.1s step-start infinite;
   }
 
   .lede {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(17px, 1.6vw, 21px);
-  line-height: 1.4;
-  color: var(--gray-5);
-  max-width: 48ch;
-  margin-bottom: 32px;
-}
-
-  /* ============================================================
-     FACTS — KPI-row pattern
-     2px core top rule, tabular value, mono label
-     ============================================================ */
-  .facts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 0;
-    border-top: 2px solid var(--core);
-  }
-
-  .fact {
-  padding: 18px 24px;
-  border-right: 1px solid var(--gray-2);
-}
-.fact:first-child {
-  padding-left: 0;
-}
-  .fact:last-child { border-right: none; }
-
-  .fact__label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gray-4);
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-
-  .fact__value {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 1.15;
+    max-width: 62ch;
+    font-size: 15px;
     color: var(--core);
-    letter-spacing: -0.015em;
-    font-variant-numeric: tabular-nums lining-nums;
+    margin-bottom: 36px;
+  }
+  .lede .pre { color: var(--petrol); user-select: none; }
+
+  /* ---------- FLIGHT STRIPS (the "facts") ---------- */
+  .strips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+    gap: 10px;
+  }
+  .strip {
+    position: relative;
+    display: grid;
+    grid-template-columns: 6px 1fr;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+  }
+  .strip__bar { background: var(--core); }
+  .strip[data-k="1"] .strip__bar { background: var(--rust); }
+  .strip[data-k="2"] .strip__bar { background: var(--petrol); }
+  .strip[data-k="3"] .strip__bar { background: var(--amber); }
+  .strip__body { padding: 11px 14px 12px; }
+  .strip__label {
+    font-size: 10.5px; letter-spacing: 0.18em; color: var(--muted);
+    display: flex; justify-content: space-between;
+    border-bottom: 1px dashed var(--line-soft);
+    padding-bottom: 7px; margin-bottom: 8px;
+  }
+  .strip__val {
+    font-size: 16px; font-weight: 500; color: var(--core);
+    letter-spacing: 0.01em;
   }
 
-  /* ============================================================
-     FOOTER SLUG — hairline rule + meta row
-     ============================================================ */
+  /* ---------- FOOTER / SIGN-OFF ---------- */
   footer {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-    align-items: end;
-    padding-top: 20px;
-    border-top: 1px solid var(--gray-2);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gray-4);
-    line-height: 1.7;
+    font-size: 12px; letter-spacing: 0.05em; color: var(--muted);
   }
+  .footer-grid {
+    display: grid; grid-template-columns: auto 1fr; gap: 6px 18px;
+    margin-bottom: 16px;
+  }
+  .footer-grid dt { color: var(--muted); letter-spacing: 0.16em; }
+  .footer-grid dd { color: var(--core); }
+  .footer-grid a { color: var(--core); text-decoration: none; border-bottom: 1px solid var(--line-soft); }
+  .footer-grid a:hover { color: var(--rust); border-color: var(--rust); }
+  .eom {
+    display: flex; align-items: center; gap: 14px;
+    color: var(--muted); letter-spacing: 0.14em; font-size: 11px;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+  .eom .rule { flex: 1; border-top: 1px dashed var(--line-soft); }
 
-  footer .addr {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    text-transform: none;
-    color: var(--gray-5);
-    line-height: 1.55;
-    max-width: 36ch;
-  }
+  /* ---------- REVEAL ---------- */
+  @keyframes up { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .statusbar { animation: up .6s ease both; }
+  .telex-hd  { animation: up .6s ease .1s both; }
+  h1         { animation: up .7s ease .2s both; }
+  .lede      { animation: up .7s ease .35s both; }
+  .strips    { animation: up .7s ease .5s both; }
+  footer     { animation: up .7s ease .65s both; }
 
-  footer .right {
-    text-align: right;
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: .01s !important; }
+    h1 .cur, .live::before { animation: none; }
   }
-
-  footer a {
-    color: var(--core);
-    text-decoration: none;
-    border-bottom: 1px solid var(--gray-2);
-    padding-bottom: 1px;
-    transition: border-color 0.2s ease, color 0.2s ease;
+  @media (max-width: 560px) {
+    .statusbar { font-size: 11px; }
+    h1 { letter-spacing: 0; }
   }
-  footer a:hover {
-    color: var(--rust);
-    border-bottom-color: var(--rust);
-  }
-
-  /* ============================================================
-     RESPONSIVE
-     ============================================================ */
-  @media (max-width: 720px) {
-    .chrome {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 14px;
-    }
-    .fact {
-      border-right: none;
-      border-bottom: 1px solid var(--gray-2);
-      padding: 14px 0;
-    }
-    .fact:last-child { border-bottom: none; }
-    footer {
-      grid-template-columns: 1fr;
-    }
-    footer .right {
-      text-align: left;
-    }
-  }
-
-  /* ============================================================
-     LOAD ANIMATION — restrained, staggered reveal
-     ============================================================ */
-  @keyframes reveal {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .chrome    { animation: reveal 0.8s ease 0.0s both; }
-  .eyebrow   { animation: reveal 0.8s ease 0.15s both; }
-  h1.display { animation: reveal 0.9s ease 0.3s both; }
-  .lede      { animation: reveal 0.9s ease 0.5s both; }
-  .facts     { animation: reveal 0.9s ease 0.7s both; }
-  footer     { animation: reveal 0.8s ease 0.9s both; }
 </style>
 </head>
 
 <body>
-
-  <div class="band" aria-hidden="true"></div>
-
   <div class="frame">
 
-    <header class="chrome">
-      <div class="wm">
-        <div class="wm__sq" aria-hidden="true">
-          <span></span><span></span>
-        </div>
-        <span class="wm__text">AIP</span>
-      </div>
-      <div class="chrome__meta">
-        Aviation Intelligence Platform · 2026
-      </div>
+    <header class="statusbar">
+      <span class="wm">
+        <span class="wm__sq" aria-hidden="true"><i></i><i></i><i></i></span>
+        AIP&nbsp;//&nbsp;OPS
+      </span>
+      <span class="clock">
+        <span>STN&nbsp;KTEB</span>
+        <span>·</span>
+        <b id="zdate">2026-06-09</b>
+        <b id="ztime">0000:00Z</b>
+        <span class="live">LIVE</span>
+      </span>
     </header>
 
     <main>
-      <div class="eyebrow">AIP Holding, Inc. · Delaware</div>
+      <div class="telex-hd">
+        <span class="tag">TELEX 001</span>
+        <span>AIP HOLDING, INC. · DELAWARE</span>
+        <span>·</span>
+        <span class="ok">STATUS: IN DEVELOPMENT</span>
+      </div>
 
-      <h1 class="display">
-        Data infrastructure for <em>business aviation.</em>
-      </h1>
+      <h1>Data + intelligence<br />layer for business<br />aviation<span class="cur" aria-hidden="true"></span></h1>
 
       <p class="lede">
-        AIP is building the data and intelligence layer for
-        Business Aviation. The product is in development with
-        a small group of design partners.
+        <span class="pre">&gt;&nbsp;</span>AIP is building the data and intelligence layer for business aviation.
+        The product is in active development with a small group of design partners.
       </p>
 
-      <div class="facts">
-        <div class="fact">
-          <div class="fact__label">Entity</div>
-          <div class="fact__value">Delaware C-Corp</div>
+      <div class="strips">
+        <div class="strip" data-k="0">
+          <div class="strip__bar"></div>
+          <div class="strip__body">
+            <div class="strip__label"><span>ENTITY</span><span>01</span></div>
+            <div class="strip__val">Delaware C-Corp</div>
+          </div>
         </div>
-        <div class="fact">
-          <div class="fact__label">Sector</div>
-          <div class="fact__value">Business aviation</div>
+        <div class="strip" data-k="1">
+          <div class="strip__bar"></div>
+          <div class="strip__body">
+            <div class="strip__label"><span>SECTOR</span><span>02</span></div>
+            <div class="strip__val">Business aviation</div>
+          </div>
         </div>
-        <div class="fact">
-          <div class="fact__label">Stage</div>
-          <div class="fact__value">Pre-seed</div>
+        <div class="strip" data-k="2">
+          <div class="strip__bar"></div>
+          <div class="strip__body">
+            <div class="strip__label"><span>STAGE</span><span>03</span></div>
+            <div class="strip__val">Pre-seed</div>
+          </div>
         </div>
-        <div class="fact">
-          <div class="fact__label">Founded</div>
-          <div class="fact__value">2026</div>
+        <div class="strip" data-k="3">
+          <div class="strip__bar"></div>
+          <div class="strip__body">
+            <div class="strip__label"><span>FILED</span><span>04</span></div>
+            <div class="strip__val">Wilmington, DE · 2026</div>
+          </div>
         </div>
       </div>
     </main>
 
     <footer>
-      <div class="addr">
-        AIP Holding, Inc.<br />
-        251 Little Falls Drive<br />
-        Wilmington, DE 19808<br />
-        United States
-      </div>
-      <div class="right">
-        <a href="mailto:contact@aipholdinginc.com">contact@aipholdinginc.com</a><br />
-        © 2026 AIP Holding, Inc.
+      <dl class="footer-grid">
+        <dt>CONTACT</dt>
+        <dd><a href="mailto:contact@aipholdinginc.com">contact@aipholdinginc.com</a></dd>
+        <dt>STATION</dt>
+        <dd>251 Little Falls Drive · Wilmington, DE 19808 · United States</dd>
+      </dl>
+      <div class="eom">
+        <span class="rule"></span>
+        <span>END OF MESSAGE</span>
+        <span class="rule"></span>
+        <span>© 2026 AIP HOLDING, INC.</span>
       </div>
     </footer>
 
   </div>
 
+  <script>
+    // Live Zulu (UTC) clock — flight ops run on Z time.
+    (function () {
+      var d = document.getElementById('zdate');
+      var t = document.getElementById('ztime');
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function tick() {
+        var z = new Date();
+        d.textContent = z.getUTCFullYear() + '-' + pad(z.getUTCMonth() + 1) + '-' + pad(z.getUTCDate());
+        t.textContent = pad(z.getUTCHours()) + pad(z.getUTCMinutes()) + ':' + pad(z.getUTCSeconds()) + 'Z';
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
 </body>
 </html>

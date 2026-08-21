@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Engineer — Aircraft Data · AIP Holding, Inc.</title>
+<meta name="description" content="A remote contract role at AIP Holding, Inc. — build the data and intelligence layer for business aviation: ingestion, extraction, performance and valuation. Aviation background required." />
+<meta name="robots" content="noindex, nofollow" />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AIP Holding, Inc." />
+<meta property="og:url" content="https://aipholdinginc.com/careers" />
+<meta property="og:title" content="AI Engineer — Aircraft Data · AIP Holding, Inc." />
+<meta property="og:description" content="Remote · Contract via Deel, hourly. Build the data and intelligence layer for business aviation. Aviation background required — no aviation background is not a fit." />
+<meta property="og:image" content="https://aipholdinginc.com/og-careers.png" />
+<meta property="og:image:secure_url" content="https://aipholdinginc.com/og-careers.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AI Engineer — Aircraft Data. AIP Holding, Inc." />
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI Engineer — Aircraft Data · AIP Holding, Inc." />
+<meta name="twitter:description" content="Remote · Contract via Deel, hourly. Build the data and intelligence layer for business aviation. Aviation background required." />
+<meta name="twitter:image" content="https://aipholdinginc.com/og-careers.png" />
+<meta name="twitter:image:alt" content="AI Engineer — Aircraft Data. AIP Holding, Inc." />
+
+<meta name="theme-color" content="#E7EAEE" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     AIP — Careers · Aircraft Data
+     Same flight-ops aesthetic as the AIP holding page (stealth):
+     instrument grey, IBM Plex Mono chrome, telex framing, flight
+     strips. Long-form JD body set in IBM Plex Sans for reading.
+     ============================================================ */
+  :root {
+    --core:      #1B2638;
+    --core-deep: #0F1825;
+    --petrol:    #2C5969;
+    --rust:      #B8533A;
+    --rust-deep: #9A4025;
+    --amber:     #C9881F;
+    --bg:        #E7EAEE;
+    --panel:     #F4F6F8;
+    --panel-2:   #FBFCFD;
+    --line:      #1B2638;
+    --line-soft: #B7BFC9;
+    --muted:     #5B6675;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, Menlo, monospace;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    --wrap: 900px;      /* wider reading column */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    min-height: 100%;
+    background: var(--bg);
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: -1px -1px;
+    color: var(--core);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "tnum", "zero";
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0;
+    background: var(--bg); opacity: 0.86; z-index: 0; pointer-events: none;
+  }
+
+  .frame { position: relative; z-index: 1; max-width: var(--wrap); margin: 0 auto; }
+  .col { padding-inline: clamp(20px, 5vw, 44px); }
+
+  /* ---------- STATUS BAR (sticky) ---------- */
+  .statusbar {
+    position: sticky; top: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    padding: 10px clamp(14px, 3vw, 20px);
+    margin: clamp(14px, 3vw, 28px) clamp(14px, 3vw, 24px) 0;
+    background: var(--core); color: #D7DCE3;
+    font-size: 12px; letter-spacing: 0.08em; flex-wrap: wrap;
+  }
+  .statusbar .wm { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 600; letter-spacing: 0.22em; text-decoration: none; }
+  .wm__sq { display: inline-flex; gap: 3px; }
+  .wm__sq i { width: 11px; height: 11px; background: #E7EAEE; display: inline-block; }
+  .wm__sq i:last-child { width: 4px; background: var(--rust); }
+  .statusbar .right { display: flex; align-items: center; gap: 14px; }
+  .statusbar .clock { display: flex; align-items: center; gap: 8px; color: #AEB6C0; }
+  .statusbar .clock b { color: #fff; font-weight: 500; font-variant-numeric: tabular-nums; }
+  @media (max-width: 620px) { .statusbar .clock { display: none; } }
+
+  /* ---------- BUTTONS ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--mono); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 9px 16px; border: 1px solid transparent; border-radius: 2px;
+    text-decoration: none; white-space: nowrap; cursor: pointer;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn--primary { background: var(--rust); color: #fff; border-color: var(--rust); }
+  .btn--primary:hover { background: var(--rust-deep); border-color: var(--rust-deep); }
+  .btn--sm { padding: 7px 13px; font-size: 11px; }
+  .btn--onDark { background: #fff; color: var(--core); border-color: #fff; }
+  .btn--onDark:hover { background: var(--bg); }
+
+  /* ---------- HERO ---------- */
+  .hero { padding-top: clamp(30px, 6vh, 60px); padding-bottom: clamp(20px, 4vh, 36px); }
+  .telex-hd {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    font-size: 12px; letter-spacing: 0.1em; color: var(--muted);
+    padding-bottom: 14px; margin-bottom: 26px; border-bottom: 1px solid var(--line);
+  }
+  .telex-hd .tag { background: var(--core); color: #fff; padding: 3px 9px; letter-spacing: 0.14em; font-weight: 500; }
+  .telex-hd .ok { color: var(--petrol); font-weight: 600; }
+
+  h1.role {
+    font-family: var(--mono); font-weight: 600;
+    font-size: clamp(30px, 6.4vw, 58px); line-height: 1.05;
+    letter-spacing: -0.01em; text-transform: uppercase; color: var(--core);
+    margin-bottom: 24px;
+  }
+  h1.role .cur {
+    display: inline-block; width: 0.5em; height: 0.82em; background: var(--rust);
+    transform: translateY(0.08em); margin-left: 0.14em; animation: blink 1.1s step-start infinite;
+  }
+  @keyframes blink { 50% { opacity: 0.15; } }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .chip {
+    display: inline-flex; align-items: stretch;
+    border: 1px solid var(--line-soft); background: var(--panel);
+    font-size: 12px; color: var(--core); letter-spacing: 0.02em;
+  }
+  .chip::before { content: ""; width: 4px; background: var(--petrol); }
+  .chip span { padding: 6px 11px; }
+  .chip:nth-child(1)::before { background: var(--rust); }
+  .chip:nth-child(3)::before { background: var(--amber); }
+
+  .hero__cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+  /* ---------- PROSE / ARTICLE ---------- */
+  article { counter-reset: sec; padding-top: 8px; padding-bottom: clamp(28px, 6vh, 52px); }
+  section.block { padding-top: clamp(30px, 5vh, 50px); }
+
+  h2 {
+    counter-increment: sec;
+    font-family: var(--mono); font-weight: 600; font-size: clamp(19px, 3.2vw, 26px);
+    line-height: 1.15; letter-spacing: 0.01em; text-transform: uppercase; color: var(--core);
+    margin-bottom: 20px; padding-top: 20px; border-top: 1px solid var(--line-soft);
+    display: flex; gap: 14px;
+  }
+  h2::before {
+    content: counter(sec, decimal-leading-zero);
+    color: var(--rust); font-weight: 500; font-size: 0.72em; letter-spacing: 0.06em;
+    padding-top: 0.16em; flex: none;
+  }
+
+  h3 {
+    font-family: var(--mono); font-weight: 600; font-size: 15px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--core);
+    margin: 30px 0 14px;
+  }
+
+  .prose { font-family: var(--sans); }
+  .prose p { font-size: 17px; line-height: 1.72; color: var(--core); margin-bottom: 20px; }
+  .prose p.lede-line { font-family: var(--sans); font-size: 21px; line-height: 1.5; font-weight: 600; color: var(--core); }
+  .prose strong { font-weight: 600; color: var(--core); }
+  .prose em { font-style: italic; }
+  .prose a:not(.btn) { color: var(--rust); text-decoration: none; border-bottom: 1px solid var(--line-soft); }
+  .prose a:not(.btn):hover { border-color: var(--rust); }
+  .prose code {
+    font-family: var(--mono); font-size: 0.86em; background: var(--panel); color: var(--core);
+    padding: 2px 6px; border: 1px solid var(--line-soft); white-space: nowrap;
+  }
+
+  .prose ul, .prose ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  .prose li { position: relative; padding-left: 24px; margin-bottom: 11px; font-size: 17px; line-height: 1.6; color: var(--core); font-family: var(--sans); }
+  .prose li::before { content: ""; position: absolute; left: 2px; top: 11px; width: 7px; height: 7px; background: var(--petrol); }
+  .prose ul.plain li { padding-left: 0; }
+  .prose ul.plain li::before { display: none; }
+  .prose ul.plain li { font-variant-numeric: normal; margin-bottom: 8px; }
+
+  /* ---------- SCREENING CALLOUT (NOTAM-style stop) ---------- */
+  .callout {
+    margin: 26px 0 8px; background: var(--rust); color: #fff;
+    border: 1px solid var(--rust-deep); border-left: 6px solid var(--core-deep);
+    padding: clamp(18px, 4vw, 26px) clamp(18px, 4vw, 28px);
+  }
+  .callout .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; opacity: 0.85; display: block; margin-bottom: 10px; }
+  .callout p { margin: 0; color: #fff; font-family: var(--sans); font-weight: 600; font-size: clamp(19px, 3.6vw, 25px); line-height: 1.3; }
+
+  /* ---------- PERFORMANCE TABLE ---------- */
+  .tableWrap {
+    margin: 24px 0; border: 1px solid var(--line-soft); background: var(--panel-2);
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+  }
+  .tableWrap:focus-visible { outline: 2px solid var(--core); outline-offset: 2px; }
+  table { border-collapse: collapse; width: 100%; min-width: 760px; font-family: var(--mono); font-feature-settings: "tnum" 1; }
+  thead th {
+    text-align: left; vertical-align: bottom;
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+    padding: 11px 13px; background: var(--panel); border-bottom: 1px solid var(--line-soft); white-space: nowrap;
+  }
+  tbody td { font-size: 13px; line-height: 1.5; color: var(--muted); padding: 11px 13px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody td:first-child { color: var(--core); font-weight: 600; white-space: nowrap; }
+  tbody td:nth-child(-n+5) { white-space: nowrap; }
+  tbody td:last-child { min-width: 240px; white-space: normal; }
+
+  /* ---------- APPLY LINE ---------- */
+  .applyLine { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+  .prose p.note { font-size: 13.5px; line-height: 1.6; color: var(--muted); margin-top: 24px; font-family: var(--sans); }
+  .prose p.note a { color: var(--muted); }
+
+  /* ---------- CLOSING BAND ---------- */
+  .closing { position: relative; z-index: 1; background: var(--core); color: #fff; margin-top: clamp(34px, 7vh, 64px); }
+  .closing__in { max-width: var(--wrap); margin: 0 auto; padding: clamp(44px, 9vh, 84px) clamp(20px, 5vw, 44px); text-align: center; }
+  .closing__k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.24em; color: var(--amber); margin-bottom: 22px; }
+  .closing__line { font-family: var(--sans); font-weight: 500; font-size: clamp(21px, 4.2vw, 29px); line-height: 1.3; color: #fff; max-width: 30ch; margin: 0 auto 26px; }
+  .closing__line em { font-style: italic; }
+
+  /* ---------- APPLICATION FORM EMBED ---------- */
+  .embed { position: relative; z-index: 1; scroll-margin-top: 90px; }
+  .embed__in { max-width: var(--wrap); margin: 0 auto; padding-block: clamp(34px, 7vh, 68px) clamp(20px, 4vh, 36px); }
+  .embed__k { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .embed__frame { background: var(--panel-2); border: 1px solid var(--line-soft); padding: clamp(8px, 2vw, 18px); }
+  .embed__frame iframe { display: block; width: 100%; min-height: 600px; border: 0; }
+
+  /* ---------- FOOTER ---------- */
+  .footwrap { position: relative; z-index: 1; max-width: var(--wrap); margin: 0 auto; }
+  footer.foot { padding: clamp(22px, 4vw, 32px) clamp(20px, 5vw, 44px) clamp(26px, 5vw, 40px); font-size: 12px; letter-spacing: 0.05em; color: var(--muted); }
+  .footer-grid { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; margin-bottom: 16px; }
+  .footer-grid dt { color: var(--muted); letter-spacing: 0.16em; }
+  .footer-grid dd { color: var(--core); }
+  .footer-grid a { color: var(--core); text-decoration: none; border-bottom: 1px solid var(--line-soft); }
+  .footer-grid a:hover { color: var(--rust); border-color: var(--rust); }
+  .eom { display: flex; align-items: center; gap: 14px; color: var(--muted); letter-spacing: 0.14em; font-size: 11px; border-top: 1px solid var(--line); padding-top: 12px; }
+  .eom .rule { flex: 1; border-top: 1px dashed var(--line-soft); }
+
+  .skip { position: absolute; left: -9999px; }
+  .skip:focus { left: 8px; top: 8px; z-index: 100; background: #fff; padding: 8px 12px; border: 1px solid var(--core); }
+
+  @keyframes up { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .hero { animation: up .7s ease .05s both; }
+  @media (prefers-reduced-motion: reduce) { .hero { animation: none; } h1.role .cur { animation: none; } }
+</style>
+</head>
+
+<body>
+  <a class="skip" href="#apply">Skip to apply</a>
+
+  <div class="frame">
+    <header class="statusbar">
+      <a class="wm" href="/">
+        <span class="wm__sq" aria-hidden="true"><i></i><i></i><i></i></span>
+        AIP&nbsp;//&nbsp;OPS
+      </a>
+      <span class="right">
+        <span class="clock">
+          <span>STN&nbsp;KTEB</span><span>·</span>
+          <b id="zdate">2026-08-21</b><b id="ztime">0000:00Z</b>
+        </span>
+        <a class="btn btn--primary btn--sm" href="#apply">Apply</a>
+      </span>
+    </header>
+
+    <main class="prose col">
+      <section class="hero">
+        <div class="telex-hd">
+          <span class="tag">OPEN ROLE</span>
+          <span>AIP HOLDING, INC. · DELAWARE</span>
+          <span>·</span>
+          <span class="ok">STATUS: HIRING</span>
+        </div>
+
+        <h1 class="role">AI Engineer — Aircraft Data<span class="cur" aria-hidden="true"></span></h1>
+
+        <div class="chips">
+          <span class="chip"><span>Remote</span></span>
+          <span class="chip"><span>Contract via Deel, hourly, invoiced weekly</span></span>
+          <span class="chip"><span>Must partially overlap US hours</span></span>
+        </div>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#apply">Apply →</a>
+        </div>
+      </section>
+
+      <article>
+        <section class="block">
+          <h2>What we're building</h2>
+          <p>We're building the transaction and ownership intelligence layer for business aviation — the system of record for what an aircraft is, who owns it, what it's worth, and what happened to it.</p>
+          <p>Currently in stealth. In closed beta with a small group of brokers and principals who use the product on live deals and tell us to our faces when it's wrong.</p>
+          <p>Two founders. One with 27 years in tech, media and SaaS, and multiple exits. One with 30 years in business aviation. You'll work directly with both, plus a fractional CTO (PhD, ML).</p>
+        </section>
+
+        <section class="block">
+          <h2>Your mission</h2>
+          <p class="lede-line"><strong>Turn the ugliest data in aviation into a product people pay for.</strong></p>
+          <p>Aircraft data is scattered, contradictory, half-scanned, and older than most of the people reading this. Registries disagree with logbooks. Logbooks disagree with each other. Serial numbers get transposed. Airframes change registration three times and countries twice.</p>
+          <p>Your job: make it structured, trustworthy, and queryable — fast.</p>
+          <p>Use whatever works:</p>
+          <ul>
+            <li>LLM extraction pipelines</li>
+            <li>OCR on 1970s carbon-copy maintenance entries</li>
+            <li>Entity resolution across registries</li>
+            <li>Scrapers</li>
+            <li>Embeddings and retrieval</li>
+            <li>Valuation and performance models</li>
+            <li>Agents that do the boring parts</li>
+            <li>Something nobody's tried</li>
+          </ul>
+          <p>If it works, we double down. If it doesn't, we kill it that week.</p>
+          <p>We want a <strong>builder</strong>, not a researcher. We're not writing papers. We're shipping into live transactions where a wrong ownership record kills the deal and the customer relationship with it.</p>
+        </section>
+
+        <section class="block">
+          <h2>Non-negotiable: you know aircraft</h2>
+          <p>This is aviation software. You cannot write it without understanding the aircraft.</p>
+          <p>Every panel we ship encodes a technical judgement. A payload-range comparison is not a lookup of two published figures — it's a tradeoff under fuel reserves, ISA deviation, cruise setting and runway performance. A valuation is not a regression on hours — it's engine programme status, damage history, AD and SB position, avionics currency. An engineer who doesn't understand what the numbers mean will build something that computes cleanly and is wrong at the design level. That is not caught by testing, and it is not caught by us reviewing the PR.</p>
+          <p><strong>You need at least one of:</strong></p>
+          <ul>
+            <li>A pilot licence — PPL or above, any authority</li>
+            <li>A degree in aeronautical or aerospace engineering</li>
+            <li>Real operational time inside aviation: MRO, CAMO, avionics, flight ops, flight test, or an OEM</li>
+          </ul>
+          <p><strong>And you need to talk about an airframe without a glossary.</strong> TBO. AD compliance. SB status. Damage history. Total time vs. TSO. Part-ML vs. Part 91. Payload-range tradeoff. What "engine on programme" does to a valuation. The difference between an AFM and an AMM — and why only one of them can be quoted to a buyer.</p>
+          <div class="callout" role="note">
+            <p>No aviation background → not a fit. Please don't apply.</p>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>What you'll own</h2>
+          <ul>
+            <li>The ingestion and extraction pipelines that feed the platform — registry data, scanned logbooks, maintenance records, flight data</li>
+            <li>The performance and comparison logic that sits on top of it</li>
+            <li>LLM-in-the-loop systems where accuracy is auditable, not vibes</li>
+            <li>Evaluation: knowing the model is wrong before the customer does</li>
+            <li>User-facing features off the back of it, not just backend plumbing</li>
+          </ul>
+          <p>You'll own this layer end to end. You won't own the whole architecture — the surfaces, the warehouse and the product direction sit with the technical co-founder, and there's a fractional CTO on call for the ML questions. What you get is the hardest, least-solved part of the system and the authority to decide how it gets built.</p>
+        </section>
+
+        <section class="block">
+          <h2>Who you are</h2>
+          <ul>
+            <li>Fluent English</li>
+            <li>You've shipped production software with AI in it — not a demo, not a notebook</li>
+            <li>You treat LLMs as unreliable components you engineer around, not as magic</li>
+            <li>You'd rather ship one thing that's right on Friday than five that are nearly right in October. You cut scope, not corners</li>
+            <li>You treat traceability as part of the build, not overhead added afterwards — every output can be traced to a source, and you can say how confident the system is in it</li>
+            <li>You're comfortable being the only engineer in the room on your part of the system</li>
+            <li>You like data that fights back</li>
+            <li>You read AFMs for fun and you're only slightly embarrassed about it</li>
+          </ul>
+          <h3>Bonus</h3>
+          <ul>
+            <li>You own or share an aircraft</li>
+            <li>You've built something on ADS-B, registry, or fleet data</li>
+            <li>You've worked on performance, valuation, pricing, or marketplace models</li>
+            <li>Type rating, IR, or mid-training</li>
+            <li>Reading German or French (EASA-side registry and TCDS material)</li>
+            <li>Side projects with users</li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <h2>Shape of the engagement</h2>
+          <ul>
+            <li>Contract through Deel, hourly, invoiced weekly, paid on time</li>
+            <li>Full-time or part-time both work. If you're a final-year aero student who ships, two focused days a week on defined workstreams is a real option — say so in your application</li>
+            <li><strong>Paid trial task first:</strong> half a day at your hourly rate, on real (anonymised) data, before any longer engagement</li>
+            <li>Mutual NDA before the trial, since it touches customer records</li>
+            <li>Start: as soon as the trial clears</li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <h2>Why take it</h2>
+          <ul>
+            <li>The problem is genuinely unsolved. Nobody has built trustworthy structured ownership and maintenance history at scale in this market. The incumbents sell lists; we're building the record</li>
+            <li>A co-founder who has sold aircraft for three decades answering your domain questions in real time. That input is not available anywhere else</li>
+            <li>Paid properly from day one. Hourly, contracted, invoiced weekly, paid on time. No unpaid founder energy, no deferred anything</li>
+            <li>Real flexibility on hours, structured around defined workstreams rather than presence</li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <h2>To apply</h2>
+          <p>Three things. Short is fine. Slides aren't required and CVs are optional.</p>
+          <p><strong>1. Something you shipped with AI in it.</strong> What it did, what broke, what you did about it.</p>
+          <p><strong>2. Two real extracts from our warehouse, both flagged the same way by our reconciliation engine.</strong> Bullets are fine, ~400 words is plenty.</p>
+          <p><strong>Extract A — a light jet, takeoff distance, from the manufacturer's information manual.</strong> Six of 127 rows the engine tagged <code>competing_verified_values</code>:</p>
+
+          <div class="tableWrap" role="region" aria-label="Extract A — takeoff distance, competing verified values" tabindex="0">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">ft</th>
+                  <th scope="col">weight lb</th>
+                  <th scope="col">press. alt ft</th>
+                  <th scope="col">OAT °C</th>
+                  <th scope="col">wind</th>
+                  <th scope="col">flap</th>
+                  <th scope="col">runway</th>
+                  <th scope="col">other conditions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1,670</td><td>16,000</td><td>SL</td><td>−54</td><td>30 kt head</td><td>8</td><td>dry, no slope</td><td>IPS on</td></tr>
+                <tr><td>2,020</td><td>16,000</td><td>SL</td><td>0</td><td>30 kt head</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>2,020</td><td>16,000</td><td>0</td><td>−54</td><td>0 kt</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>2,080</td><td>16,000</td><td>1,000</td><td>−54</td><td>0 kt</td><td>15</td><td>wet, no slope</td><td>IPS on</td></tr>
+                <tr><td>2,270</td><td>18,740</td><td>1,000</td><td>−54</td><td>30 kt head</td><td>8</td><td>dry, no slope</td><td>IPS on</td></tr>
+                <tr><td>2,280</td><td>16,000</td><td>6,000</td><td>−54</td><td>0 kt</td><td>15</td><td>dry, no slope</td><td>IPS on, anti-skid on, lift dump operative, operative engine TO detent (ATR activated), inoperative engine windmilling, MSN 501-up</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Full set spans 1,670–9,030 ft. The engine picked 2,630 ft as the winner. The catalogue currently shows 3,410 ft.</p>
+          <p><strong>Extract B — same aircraft type, maximum landing weight.</strong> The manual yields 18,300 lb on some pages and 18,740 lb on others. The type certificate data sheet says 17,340 lb. The engine picked 17,340.</p>
+          <p>Three questions:</p>
+          <ul class="plain">
+            <li>a) Both extracts are flagged identically. Are they the same kind of problem? Treat each on its merits.</li>
+            <li>b) What should the pipeline store for each, and what should the schema look like?</li>
+            <li>c) Which of these figures would you refuse to put in front of a buyer, and why?</li>
+          </ul>
+          <p><strong>3. Your aviation credential.</strong> Licence type, issuing authority and hours; or degree and institution; or the operator you worked for and in what function.</p>
+          <p><strong>Process:</strong> application → 30-minute call → paid trial task → decision. We aim to come back on applications within 5 working days.</p>
+          <p class="note"><em>We process applications through Tally, review them in Notion, and contract through Deel. We use what you send only to assess you for this role, keep it for up to 12 months, and don't share it further. To see, correct or delete what we hold, email <a href="mailto:hr@aipholdinginc.com">hr@aipholdinginc.com</a>.</em></p>
+        </section>
+      </article>
+    </main>
+  </div>
+
+  <section class="closing" aria-label="Apply">
+    <div class="closing__in">
+      <p class="closing__line">If you fly <em>and</em> you build, this is one of the rarest jobs on the market — and you're already qualified for it.</p>
+      <a class="btn btn--onDark" href="#apply">Apply →</a>
+    </div>
+  </section>
+
+  <section class="embed" id="apply" aria-label="Application form">
+    <div class="embed__in col">
+      <div class="embed__k">Application form</div>
+      <div class="embed__frame">
+        <iframe
+          data-tally-src="https://tally.so/embed/VLWZa6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="766"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Application form — AI Engineer, Aircraft Data"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div class="footwrap">
+    <footer class="foot col">
+      <dl class="footer-grid">
+        <dt>CONTACT</dt>
+        <dd><a href="mailto:hr@aipholdinginc.com">hr@aipholdinginc.com</a></dd>
+        <dt>STATION</dt>
+        <dd>251 Little Falls Drive · Wilmington, DE 19808 · United States</dd>
+      </dl>
+      <div class="eom">
+        <span class="rule"></span>
+        <span>END OF MESSAGE</span>
+        <span class="rule"></span>
+        <span>© 2026 AIP HOLDING, INC.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var d = document.getElementById('zdate'), t = document.getElementById('ztime');
+      function pad(n){ return String(n).padStart(2,'0'); }
+      function tick(){
+        var z = new Date();
+        d.textContent = z.getUTCFullYear()+'-'+pad(z.getUTCMonth()+1)+'-'+pad(z.getUTCDate());
+        t.textContent = pad(z.getUTCHours())+pad(z.getUTCMinutes())+':'+pad(z.getUTCSeconds())+'Z';
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+  </script>
+  <script async src="https://tally.so/widgets/embed.js"></script>
+</body>
+</html>

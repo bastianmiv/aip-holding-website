@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Open roles · AIP Holding, Inc.</title>
+<meta name="description" content="Open roles at AIP Holding, Inc. — remote contract engineering positions building the data and intelligence layer for business aviation." />
+<meta name="robots" content="noindex, nofollow" />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AIP Holding, Inc." />
+<meta property="og:url" content="https://aipholdinginc.com/careers" />
+<meta property="og:title" content="Open roles · AIP Holding, Inc." />
+<meta property="og:description" content="Remote contract engineering roles building the data and intelligence layer for business aviation. Two seats open." />
+<meta property="og:image" content="https://aipholdinginc.com/og-careers.png" />
+<meta property="og:image:secure_url" content="https://aipholdinginc.com/og-careers.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Open roles — AIP Holding, Inc." />
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Open roles · AIP Holding, Inc." />
+<meta name="twitter:description" content="Remote contract engineering roles building the data and intelligence layer for business aviation. Two seats open." />
+<meta name="twitter:image" content="https://aipholdinginc.com/og-careers.png" />
+<meta name="twitter:image:alt" content="Open roles — AIP Holding, Inc." />
+
+<meta name="theme-color" content="#E7EAEE" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  /* AIP — Careers index (open roles). Same flight-ops aesthetic as the holding page. */
+  :root {
+    --core:#1B2638; --core-deep:#0F1825; --petrol:#2C5969; --rust:#B8533A; --rust-deep:#9A4025; --amber:#C9881F;
+    --bg:#E7EAEE; --panel:#F4F6F8; --panel-2:#FBFCFD; --line:#1B2638; --line-soft:#B7BFC9; --muted:#5B6675;
+    --mono:"IBM Plex Mono", ui-monospace, Consolas, Menlo, monospace;
+    --sans:"IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    --wrap:900px;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body {
+    min-height:100%; background:var(--bg);
+    background-image:linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size:28px 28px; background-position:-1px -1px;
+    color:var(--core); font-family:var(--mono); font-size:14px; line-height:1.5;
+    -webkit-font-smoothing:antialiased; font-feature-settings:"tnum","zero";
+  }
+  body::before { content:""; position:fixed; inset:0; background:var(--bg); opacity:0.86; z-index:0; pointer-events:none; }
+  .frame { position:relative; z-index:1; max-width:var(--wrap); margin:0 auto; min-height:100vh; display:flex; flex-direction:column; }
+  .col { padding-inline:clamp(20px,5vw,44px); }
+
+  .statusbar {
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    padding:10px clamp(14px,3vw,20px); margin:clamp(14px,3vw,28px) clamp(14px,3vw,24px) 0;
+    background:var(--core); color:#D7DCE3; font-size:12px; letter-spacing:0.08em; flex-wrap:wrap;
+  }
+  .statusbar .wm { display:flex; align-items:center; gap:10px; color:#fff; font-weight:600; letter-spacing:0.22em; text-decoration:none; }
+  .wm__sq { display:inline-flex; gap:3px; }
+  .wm__sq i { width:11px; height:11px; background:#E7EAEE; display:inline-block; }
+  .wm__sq i:last-child { width:4px; background:var(--rust); }
+  .statusbar .clock { display:flex; align-items:center; gap:8px; color:#AEB6C0; }
+  .statusbar .clock b { color:#fff; font-weight:500; font-variant-numeric:tabular-nums; }
+  @media (max-width:620px){ .statusbar .clock { display:none; } }
+
+  main { flex:1; }
+  .hero { padding-top:clamp(30px,6vh,60px); padding-bottom:clamp(14px,3vh,26px); }
+  .telex-hd {
+    display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+    font-size:12px; letter-spacing:0.1em; color:var(--muted);
+    padding-bottom:14px; margin-bottom:26px; border-bottom:1px solid var(--line);
+  }
+  .telex-hd .tag { background:var(--core); color:#fff; padding:3px 9px; letter-spacing:0.14em; font-weight:500; }
+  .telex-hd .ok { color:var(--petrol); font-weight:600; }
+  h1 { font-family:var(--mono); font-weight:600; font-size:clamp(30px,6vw,54px); line-height:1.05; letter-spacing:-0.01em; text-transform:uppercase; color:var(--core); margin-bottom:16px; }
+  .lede { font-family:var(--sans); font-size:17px; line-height:1.6; color:var(--core); max-width:60ch; margin-bottom:8px; }
+
+  .roles { padding-bottom:clamp(30px,6vh,56px); display:grid; gap:14px; margin-top:clamp(20px,4vh,34px); }
+  .rolecard {
+    display:grid; grid-template-columns:6px 1fr; text-decoration:none; color:inherit;
+    background:var(--panel-2); border:1px solid var(--line-soft);
+    transition:border-color .15s ease, transform .05s ease, box-shadow .15s ease;
+  }
+  .rolecard:hover { border-color:var(--core); box-shadow:0 1px 0 var(--line-soft); }
+  .rolecard__bar { background:var(--rust); }
+  .rolecard:nth-child(2) .rolecard__bar { background:var(--petrol); }
+  .rolecard__body { padding:clamp(18px,3vw,26px) clamp(18px,3vw,28px); }
+  .rolecard__k { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; display:flex; gap:10px; align-items:center; }
+  .rolecard__k b { color:var(--rust); font-weight:500; }
+  .rolecard:nth-child(2) .rolecard__k b { color:var(--petrol); }
+  .rolecard h2 { font-family:var(--mono); font-weight:600; font-size:clamp(20px,3.4vw,28px); letter-spacing:-0.01em; text-transform:uppercase; color:var(--core); margin-bottom:12px; }
+  .rolecard p { font-family:var(--sans); font-size:17px; line-height:1.55; color:var(--core); font-weight:500; margin-bottom:16px; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+  .chip { display:inline-flex; align-items:stretch; border:1px solid var(--line-soft); background:var(--panel); font-size:12px; color:var(--core); letter-spacing:0.02em; }
+  .chip::before { content:""; width:4px; background:var(--line-soft); }
+  .chip span { padding:5px 10px; }
+  .view { font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--rust); }
+  .rolecard:nth-child(2) .view { color:var(--petrol); }
+
+  footer.foot { padding:clamp(22px,4vw,32px) clamp(20px,5vw,44px) clamp(26px,5vw,40px); font-size:12px; letter-spacing:0.05em; color:var(--muted); border-top:1px solid transparent; }
+  .footer-grid { display:grid; grid-template-columns:auto 1fr; gap:6px 18px; margin-bottom:16px; }
+  .footer-grid dt { color:var(--muted); letter-spacing:0.16em; }
+  .footer-grid dd { color:var(--core); }
+  .footer-grid a { color:var(--core); text-decoration:none; border-bottom:1px solid var(--line-soft); }
+  .footer-grid a:hover { color:var(--rust); border-color:var(--rust); }
+  .eom { display:flex; align-items:center; gap:14px; color:var(--muted); letter-spacing:0.14em; font-size:11px; border-top:1px solid var(--line); padding-top:12px; }
+  .eom .rule { flex:1; border-top:1px dashed var(--line-soft); }
+</style>
+</head>
+
+<body>
+  <div class="frame">
+    <header class="statusbar">
+      <a class="wm" href="/">
+        <span class="wm__sq" aria-hidden="true"><i></i><i></i><i></i></span>
+        AIP&nbsp;//&nbsp;OPS
+      </a>
+      <span class="clock">
+        <span>STN&nbsp;KTEB</span><span>·</span>
+        <b id="zdate">2026-09-24</b><b id="ztime">0000:00Z</b>
+      </span>
+    </header>
+
+    <main class="col">
+      <section class="hero">
+        <div class="telex-hd">
+          <span class="tag">OPEN ROLES</span>
+          <span>AIP HOLDING, INC. · DELAWARE</span>
+          <span>·</span>
+          <span class="ok">STATUS: HIRING</span>
+        </div>
+        <h1>Open roles</h1>
+        <p class="lede">Remote contract engineering roles building the data and intelligence layer for business aviation. Two seats open.</p>
+      </section>
+
+      <section class="roles" aria-label="Open roles">
+        <a class="rolecard" href="/careers/ai-engineer-aircraft-data">
+          <span class="rolecard__bar" aria-hidden="true"></span>
+          <span class="rolecard__body">
+            <span class="rolecard__k"><b>01</b> ENGINEERING · AIRCRAFT DATA</span>
+            <h2>AI Engineer — Aircraft Data</h2>
+            <p>Turn the ugliest data in aviation into a product people pay for.</p>
+            <span class="chips">
+              <span class="chip"><span>Remote</span></span>
+              <span class="chip"><span>Contract via Deel, hourly, invoiced weekly</span></span>
+              <span class="chip"><span>Must partially overlap US hours</span></span>
+            </span>
+            <span class="view">View role →</span>
+          </span>
+        </a>
+
+        <a class="rolecard" href="/careers/qa-agent-workflow-engineer">
+          <span class="rolecard__bar" aria-hidden="true"></span>
+          <span class="rolecard__body">
+            <span class="rolecard__k"><b>02</b> ENGINEERING · QA & AGENT WORKFLOW</span>
+            <h2>QA &amp; Agent-Workflow Engineer</h2>
+            <p>Make the harness better than the people running it — then ship through it.</p>
+            <span class="chips">
+              <span class="chip"><span>Remote</span></span>
+              <span class="chip"><span>Contract via Deel, hourly, invoiced weekly</span></span>
+              <span class="chip"><span>Must partially overlap US hours</span></span>
+            </span>
+            <span class="view">View role →</span>
+          </span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="foot col">
+      <dl class="footer-grid">
+        <dt>CONTACT</dt>
+        <dd><a href="mailto:hr@aipholdinginc.com">hr@aipholdinginc.com</a></dd>
+        <dt>STATION</dt>
+        <dd>251 Little Falls Drive · Wilmington, DE 19808 · United States</dd>
+      </dl>
+      <div class="eom">
+        <span class="rule"></span>
+        <span>END OF MESSAGE</span>
+        <span class="rule"></span>
+        <span>© 2026 AIP HOLDING, INC.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var d = document.getElementById('zdate'), t = document.getElementById('ztime');
+      function pad(n){ return String(n).padStart(2,'0'); }
+      function tick(){
+        var z = new Date();
+        d.textContent = z.getUTCFullYear()+'-'+pad(z.getUTCMonth()+1)+'-'+pad(z.getUTCDate());
+        t.textContent = pad(z.getUTCHours())+pad(z.getUTCMinutes())+':'+pad(z.getUTCSeconds())+'Z';
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+  </script>
+</body>
+</html>

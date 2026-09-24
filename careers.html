@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AI Engineer — Aircraft Data · AIP Holding, Inc.</title>
-<meta name="description" content="A remote contract role at AIP Holding, Inc. — build the data and intelligence layer for business aviation: ingestion, extraction, performance and valuation. Aviation background required." />
+<title>QA &amp; Agent-Workflow Engineer · AIP Holding, Inc.</title>
+<meta name="description" content="A remote contract role at AIP Holding, Inc. — own QA, release evidence and the Claude Code agent harness for an agent-written codebase heading to launch. Production agent-workflow experience required." />
 <meta name="robots" content="noindex, nofollow" />
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -14,21 +14,21 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="AIP Holding, Inc." />
 <meta property="og:url" content="https://aipholdinginc.com/careers" />
-<meta property="og:title" content="AI Engineer — Aircraft Data · AIP Holding, Inc." />
-<meta property="og:description" content="Remote · Contract via Deel, hourly. Build the data and intelligence layer for business aviation. Aviation background required — no aviation background is not a fit." />
-<meta property="og:image" content="https://aipholdinginc.com/ogcareers.png" />
-<meta property="og:image:secure_url" content="https://aipholdinginc.com/ogcareers.png" />
+<meta property="og:title" content="QA &amp; Agent-Workflow Engineer · AIP Holding, Inc." />
+<meta property="og:description" content="Remote · Contract via Deel, hourly. Own the agent harness, QA and release for an agent-written codebase heading to launch. Production Claude Code experience required — personal-project use is not a fit." />
+<meta property="og:image" content="https://aipholdinginc.com/og-careers.png" />
+<meta property="og:image:secure_url" content="https://aipholdinginc.com/og-careers.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="AI Engineer — Aircraft Data. AIP Holding, Inc." />
+<meta property="og:image:alt" content="QA &amp; Agent-Workflow Engineer. AIP Holding, Inc." />
 <meta property="og:locale" content="en_US" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="AI Engineer — Aircraft Data · AIP Holding, Inc." />
-<meta name="twitter:description" content="Remote · Contract via Deel, hourly. Build the data and intelligence layer for business aviation. Aviation background required." />
-<meta name="twitter:image" content="https://aipholdinginc.com/ogcareers.png" />
-<meta name="twitter:image:alt" content="AI Engineer — Aircraft Data. AIP Holding, Inc." />
+<meta name="twitter:title" content="QA &amp; Agent-Workflow Engineer · AIP Holding, Inc." />
+<meta name="twitter:description" content="Remote · Contract via Deel, hourly. Own the agent harness, QA and release for an agent-written codebase. Production Claude Code experience required." />
+<meta name="twitter:image" content="https://aipholdinginc.com/og-careers.png" />
+<meta name="twitter:image:alt" content="QA &amp; Agent-Workflow Engineer. AIP Holding, Inc." />
 
 <meta name="theme-color" content="#E7EAEE" />
 
@@ -38,10 +38,10 @@
 
 <style>
   /* ============================================================
-     AIP — Careers · Aircraft Data
+     AIP — Careers · QA & Agent-Workflow Engineer
      Same flight-ops aesthetic as the AIP holding page (stealth):
-     instrument grey, IBM Plex Mono chrome, telex framing, flight
-     strips. Long-form JD body set in IBM Plex Sans for reading.
+     instrument grey, IBM Plex Mono chrome, telex framing.
+     Long-form JD body set in IBM Plex Sans for reading.
      ============================================================ */
   :root {
     --core:      #1B2638;
@@ -58,7 +58,7 @@
     --muted:     #5B6675;
     --mono: "IBM Plex Mono", ui-monospace, Consolas, Menlo, monospace;
     --sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
-    --wrap: 900px;      /* wider reading column */
+    --wrap: 900px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -133,7 +133,7 @@
 
   h1.role {
     font-family: var(--mono); font-weight: 600;
-    font-size: clamp(30px, 6.4vw, 58px); line-height: 1.05;
+    font-size: clamp(28px, 5.4vw, 52px); line-height: 1.06;
     letter-spacing: -0.01em; text-transform: uppercase; color: var(--core);
     margin-bottom: 24px;
   }
@@ -181,7 +181,7 @@
 
   .prose { font-family: var(--sans); }
   .prose p { font-size: 17px; line-height: 1.72; color: var(--core); margin-bottom: 20px; }
-  .prose p.lede-line { font-family: var(--sans); font-size: 21px; line-height: 1.5; font-weight: 600; color: var(--core); }
+  .prose p.lede-line { font-size: 21px; line-height: 1.5; font-weight: 600; color: var(--core); }
   .prose strong { font-weight: 600; color: var(--core); }
   .prose em { font-style: italic; }
   .prose a:not(.btn) { color: var(--rust); text-decoration: none; border-bottom: 1px solid var(--line-soft); }
@@ -196,7 +196,16 @@
   .prose li::before { content: ""; position: absolute; left: 2px; top: 11px; width: 7px; height: 7px; background: var(--petrol); }
   .prose ul.plain li { padding-left: 0; }
   .prose ul.plain li::before { display: none; }
-  .prose ul.plain li { font-variant-numeric: normal; margin-bottom: 8px; }
+  .prose ul.plain li { margin-bottom: 8px; }
+
+  /* scenario blockquote (the harness problem) */
+  .prose blockquote {
+    margin: 0 0 20px; padding: 16px 20px; background: var(--panel);
+    border: 1px solid var(--line-soft); border-left: 4px solid var(--petrol);
+  }
+  .prose blockquote p { font-size: 16px; line-height: 1.6; color: var(--core); margin-bottom: 12px; }
+  .prose blockquote p:last-child { margin-bottom: 0; }
+  .prose blockquote .q { color: var(--muted); }
 
   /* ---------- SCREENING CALLOUT (NOTAM-style stop) ---------- */
   .callout {
@@ -204,45 +213,26 @@
     border: 1px solid var(--rust-deep); border-left: 6px solid var(--core-deep);
     padding: clamp(18px, 4vw, 26px) clamp(18px, 4vw, 28px);
   }
-  .callout .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; opacity: 0.85; display: block; margin-bottom: 10px; }
   .callout p { margin: 0; color: #fff; font-family: var(--sans); font-weight: 600; font-size: clamp(19px, 3.6vw, 25px); line-height: 1.3; }
 
-  /* ---------- PERFORMANCE TABLE ---------- */
-  .tableWrap {
-    margin: 24px 0; border: 1px solid var(--line-soft); background: var(--panel-2);
-    overflow-x: auto; -webkit-overflow-scrolling: touch;
-  }
-  .tableWrap:focus-visible { outline: 2px solid var(--core); outline-offset: 2px; }
-  table { border-collapse: collapse; width: 100%; min-width: 760px; font-family: var(--mono); font-feature-settings: "tnum" 1; }
-  thead th {
-    text-align: left; vertical-align: bottom;
-    font-size: 10.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
-    padding: 11px 13px; background: var(--panel); border-bottom: 1px solid var(--line-soft); white-space: nowrap;
-  }
-  tbody td { font-size: 13px; line-height: 1.5; color: var(--muted); padding: 11px 13px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
-  tbody tr:last-child td { border-bottom: none; }
-  tbody td:first-child { color: var(--core); font-weight: 600; white-space: nowrap; }
-  tbody td:nth-child(-n+5) { white-space: nowrap; }
-  tbody td:last-child { min-width: 240px; white-space: normal; }
-
-  /* ---------- APPLY LINE ---------- */
-  .applyLine { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
-  .prose p.note { font-size: 13.5px; line-height: 1.6; color: var(--muted); margin-top: 24px; font-family: var(--sans); }
+  /* ---------- APPLY / NOTE ---------- */
+  .prose p.note { font-size: 13.5px; line-height: 1.6; color: var(--muted); margin-top: 24px; }
   .prose p.note a { color: var(--muted); }
 
   /* ---------- CLOSING BAND ---------- */
   .closing { position: relative; z-index: 1; background: var(--core); color: #fff; margin-top: clamp(34px, 7vh, 64px); }
   .closing__in { max-width: var(--wrap); margin: 0 auto; padding: clamp(44px, 9vh, 84px) clamp(20px, 5vw, 44px); text-align: center; }
-  .closing__k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.24em; color: var(--amber); margin-bottom: 22px; }
-  .closing__line { font-family: var(--sans); font-weight: 500; font-size: clamp(21px, 4.2vw, 29px); line-height: 1.3; color: #fff; max-width: 30ch; margin: 0 auto 26px; }
+  .closing__line { font-family: var(--sans); font-weight: 500; font-size: clamp(21px, 4.2vw, 29px); line-height: 1.3; color: #fff; max-width: 32ch; margin: 0 auto 26px; }
   .closing__line em { font-style: italic; }
 
   /* ---------- APPLICATION FORM EMBED ---------- */
   .embed { position: relative; z-index: 1; scroll-margin-top: 90px; }
   .embed__in { max-width: var(--wrap); margin: 0 auto; padding-block: clamp(34px, 7vh, 68px) clamp(20px, 4vh, 36px); }
   .embed__k { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
-  .embed__frame { background: var(--panel-2); border: 1px solid var(--line-soft); padding: clamp(8px, 2vw, 18px); }
-  .embed__frame iframe { display: block; width: 100%; min-height: 600px; border: 0; }
+  .form-embed { background: var(--panel-2); border: 1px solid var(--line-soft); padding: clamp(8px, 2vw, 18px); }
+  .form-embed iframe { display: block; width: 100%; min-height: 600px; border: 0; }
+  /* placeholder shown until the Tally embed is pasted in */
+  .form-embed .placeholder { font-family: var(--mono); font-size: 13px; color: var(--muted); min-height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; }
 
   /* ---------- FOOTER ---------- */
   .footwrap { position: relative; z-index: 1; max-width: var(--wrap); margin: 0 auto; }
@@ -276,7 +266,7 @@
       <span class="right">
         <span class="clock">
           <span>STN&nbsp;KTEB</span><span>·</span>
-          <b id="zdate">2026-08-21</b><b id="ztime">0000:00Z</b>
+          <b id="zdate">2026-09-24</b><b id="ztime">0000:00Z</b>
         </span>
         <a class="btn btn--primary btn--sm" href="#apply">Apply</a>
       </span>
@@ -291,7 +281,7 @@
           <span class="ok">STATUS: HIRING</span>
         </div>
 
-        <h1 class="role">AI Engineer — Aircraft Data<span class="cur" aria-hidden="true"></span></h1>
+        <h1 class="role">QA &amp; Agent-Workflow Engineer<span class="cur" aria-hidden="true"></span></h1>
 
         <div class="chips">
           <span class="chip"><span>Remote</span></span>
@@ -308,78 +298,78 @@
         <section class="block">
           <h2>What we're building</h2>
           <p>We're building the transaction and ownership intelligence layer for business aviation — the system of record for what an aircraft is, who owns it, what it's worth, and what happened to it.</p>
-          <p>Currently in stealth. In closed beta with a small group of brokers and principals who use the product on live deals and tell us to our faces when it's wrong.</p>
-          <p>Two founders. One with 27 years in tech, media and SaaS, and multiple exits. One with 30 years in business aviation. You'll work directly with both, plus a fractional CTO (PhD, ML).</p>
+          <p>Currently in stealth. In closed beta with a small group of brokers and principals who use the product on live deals and tell us to our faces when it's wrong. Commercial launch 1 January 2027.</p>
+          <p>Two founders. One with 27 years in tech, media and SaaS, and multiple exits. One with 30 years in business aviation. A fractional CTO (PhD, ML) who owns infrastructure, security and the release gate. You'll work with all three.</p>
+        </section>
+
+        <section class="block">
+          <h2>How this codebase gets written</h2>
+          <p>Almost none of it is typed by a human.</p>
+          <p>The platform — React front end, Postgres with row-level security, edge functions, a scraper fleet, LLM extraction pipelines — is built by Claude Code sessions running in parallel, each in its own git worktree, driven from Linear issues and merged through a release train that only moves via CI. Over 1,700 issues have gone through that loop since May. It ships several changes a day.</p>
+          <p>That is the job's context and the job's problem. When an agent writes the code, the quality of the product is decided by the quality of the <em>harness</em> around the agent: what it is told, what it is forced to check, what it cannot do, and what has to be green before a human presses merge.</p>
+          <p>Today that harness is a 700-line <code>CLAUDE.md</code>, sixteen skills, a couple of hooks, a Playwright suite that covers nine surfaces and no authenticated flow, and a lot of discipline held in founders' heads. It got us here. It will not get two founders, a data engineer and you safely through a launch.</p>
         </section>
 
         <section class="block">
           <h2>Your mission</h2>
-          <p class="lede-line"><strong>Turn the ugliest data in aviation into a product people pay for.</strong></p>
-          <p>Aircraft data is scattered, contradictory, half-scanned, and older than most of the people reading this. Registries disagree with logbooks. Logbooks disagree with each other. Serial numbers get transposed. Airframes change registration three times and countries twice.</p>
-          <p>Your job: make it structured, trustworthy, and queryable — fast.</p>
-          <p>Use whatever works:</p>
-          <ul>
-            <li>LLM extraction pipelines</li>
-            <li>OCR on 1970s carbon-copy maintenance entries</li>
-            <li>Entity resolution across registries</li>
-            <li>Scrapers</li>
-            <li>Embeddings and retrieval</li>
-            <li>Valuation and performance models</li>
-            <li>Agents that do the boring parts</li>
-            <li>Something nobody's tried</li>
-          </ul>
+          <p class="lede-line"><strong>Make the harness better than the people running it — then ship through it.</strong></p>
+          <p>Three strands, one person.</p>
+          <p><strong>QA and release.</strong> You are the evidence behind the second gate — the human decision to promote staging to production. You build the authenticated end-to-end suite (login and MFA, deal CRUD, uploads, briefing generation, exports, Stripe in test mode) and get it running nightly on staging. You seed staging so it can be tested. You run the release smoke on staging and prod. You write defect reports that are reproductions, not impressions. You re-test fixes and say so. You think in edge cases — null input, unauthenticated, database read-only — and force the agent to test them.</p>
+          <p><strong>Agent workflow.</strong> You own <code>CLAUDE.md</code>, the skills, the hooks and the sub-agents as a product. You cut the working guide to what an agent actually adheres to and move the rest into skills that load on demand. You turn every rule that must be guaranteed — verify before declaring done, no unverified success reports, cost caps on paid lanes, migrations through the right path — from prose into a hook that blocks. You build the evals that fail a merge. You teach the rest of us, by example and by review, how to run a session so it lands the first time.</p>
+          <p><strong>Build.</strong> You are also the one engineer between the founders and the launch backlog. You run the loop — issue, plan, review, tests, QA, merge — on the Must-tier items that need a person and not a night shift: billing and access (Stripe checkout, entitlements, the free tier), tail-intelligence data fixes (provenance per field, the ownership golden set), the pre-audit security items under the CTO's review. You don't type most of it. You decide what the agent builds, you catch what it gets wrong, and you own the result.</p>
           <p>If it works, we double down. If it doesn't, we kill it that week.</p>
-          <p>We want a <strong>builder</strong>, not a researcher. We're not writing papers. We're shipping into live transactions where a wrong ownership record kills the deal and the customer relationship with it.</p>
         </section>
 
         <section class="block">
-          <h2>Non-negotiable: you know aircraft</h2>
-          <p>This is aviation software. You cannot write it without understanding the aircraft.</p>
-          <p>Every panel we ship encodes a technical judgement. A payload-range comparison is not a lookup of two published figures — it's a tradeoff under fuel reserves, ISA deviation, cruise setting and runway performance. A valuation is not a regression on hours — it's engine programme status, damage history, AD and SB position, avionics currency. An engineer who doesn't understand what the numbers mean will build something that computes cleanly and is wrong at the design level. That is not caught by testing, and it is not caught by us reviewing the PR.</p>
-          <p><strong>You need at least one of:</strong></p>
+          <h2>Non-negotiable: you have run this in production</h2>
+          <p>Not tried it. Run it. For months, on a product with users, where a bad merge cost something.</p>
+          <p><strong>You need all of:</strong></p>
           <ul>
-            <li>A pilot licence — PPL or above, any authority</li>
-            <li>A degree in aeronautical or aerospace engineering</li>
-            <li>Real operational time inside aviation: MRO, CAMO, avionics, flight ops, flight test, or an OEM</li>
+            <li>A <code>CLAUDE.md</code> (or equivalent agent working guide) you wrote and maintained for a real team, and can walk us through line by line — why each rule exists, which incident put it there, what you removed and why</li>
+            <li>At least one hook you wrote that <em>blocked</em> an agent from doing something, and at least one eval or test gate you wrote that failed a merge</li>
+            <li>A test suite you built — Playwright, Cypress or similar — that ran in CI and caught regressions before users did</li>
+            <li>Production incidents you have personally caused, caught, or cleaned up. We want someone who has broken enough things to know where they break</li>
           </ul>
-          <p><strong>And you need to talk about an airframe without a glossary.</strong> TBO. AD compliance. SB status. Damage history. Total time vs. TSO. Part-ML vs. Part 91. Payload-range tradeoff. What "engine on programme" does to a valuation. The difference between an AFM and an AMM — and why only one of them can be quoted to a buyer.</p>
+          <p><strong>And you need to talk about the workflow without a glossary.</strong> Context window and what actually loads into it. Why an instruction in <code>CLAUDE.md</code> is a suggestion and a hook is a rule. Sub-agent versus fork and when each. Worktrees. Compaction and what to preserve across it. When to stop correcting a session and restart it. Model tiering and prompt caching as cost levers, not trivia.</p>
           <div class="callout" role="note">
-            <p>No aviation background → not a fit. Please don't apply.</p>
+            <p>Haven't run Claude Code (or a comparable coding agent) on a production codebase → not a fit. Please don't apply.</p>
           </div>
+          <p>"I use it every day for my own projects" is not the same thing and we will find out on the trial.</p>
         </section>
 
         <section class="block">
           <h2>What you'll own</h2>
           <ul>
-            <li>The ingestion and extraction pipelines that feed the platform — registry data, scanned logbooks, maintenance records, flight data</li>
-            <li>The performance and comparison logic that sits on top of it</li>
-            <li>LLM-in-the-loop systems where accuracy is auditable, not vibes</li>
-            <li>Evaluation: knowing the model is wrong before the customer does</li>
-            <li>User-facing features off the back of it, not just backend plumbing</li>
+            <li>The agent harness: <code>CLAUDE.md</code>, <code>.claude/skills</code>, <code>.claude/agents</code>, hooks, settings, and how they evolve</li>
+            <li>The authenticated e2e suite and seeded staging, running nightly, green before every release candidate</li>
+            <li>Release evidence: UAT notes on every PR, smoke on staging and prod, the deploy board</li>
+            <li>The eval gates that stop AI-generated code merging when it is wrong in ways tests don't catch</li>
+            <li>Per-surface QA reviews against approved designs, logged, thirteen surfaces before 11 December</li>
+            <li>Delivery of the Must-tier build assigned to you — billing/access, tail-intelligence data fixes, pre-audit code items — through the agent loop, with the evidence attached to every PR</li>
+            <li>Coaching: a working session with each engineer and founder on how to run their sessions</li>
           </ul>
-          <p>You'll own this layer end to end. You won't own the whole architecture — the surfaces, the warehouse and the product direction sit with the technical co-founder, and there's a fractional CTO on call for the ML questions. What you get is the hardest, least-solved part of the system and the authority to decide how it gets built.</p>
+          <p>You won't own the release verdict — that stays with the fractional CTO — or the product decisions. What you get is the layer everything else depends on and the authority to decide how it's built.</p>
         </section>
 
         <section class="block">
           <h2>Who you are</h2>
           <ul>
             <li>Fluent English</li>
-            <li>You've shipped production software with AI in it — not a demo, not a notebook</li>
-            <li>You treat LLMs as unreliable components you engineer around, not as magic</li>
-            <li>You'd rather ship one thing that's right on Friday than five that are nearly right in October. You cut scope, not corners</li>
-            <li>You treat traceability as part of the build, not overhead added afterwards — every output can be traced to a source, and you can say how confident the system is in it</li>
-            <li>You're comfortable being the only engineer in the room on your part of the system</li>
-            <li>You like data that fights back</li>
-            <li>You read AFMs for fun and you're only slightly embarrassed about it</li>
+            <li>Senior enough to tell a founder his session prompt was the bug</li>
+            <li>You treat the agent as an unreliable component you engineer around, not as magic — and not as a threat</li>
+            <li>You'd rather ship one gate that's right on Friday than five that are nearly right in October. You cut scope, not corners</li>
+            <li>You find breaking things satisfying and documenting how you broke them more satisfying</li>
+            <li>Comfortable being the only person in the room whose job is to say "not yet"</li>
+            <li>TypeScript/React, Postgres with row-level security, and GitHub Actions are your working languages. You can read a Stripe webhook handler or an RLS policy the agent wrote and say whether it's right. You don't need to be the fastest engineer on the team; you need to be the one who checks</li>
+            <li>Aviation knowledge is not required for this seat — the aircraft-data engineering sits with a colleague who flies. You'll learn the domain traps from the working guide and from asking</li>
           </ul>
           <h3>Bonus</h3>
           <ul>
-            <li>You own or share an aircraft</li>
-            <li>You've built something on ADS-B, registry, or fleet data</li>
-            <li>You've worked on performance, valuation, pricing, or marketplace models</li>
-            <li>Type rating, IR, or mid-training</li>
-            <li>Reading German or French (EASA-side registry and TCDS material)</li>
-            <li>Side projects with users</li>
+            <li>You've written MCP servers or integrated them into an agent workflow</li>
+            <li>You've run agent teams or fleets of parallel sessions and dealt with the mess</li>
+            <li>You know Supabase, RLS and pgTAP</li>
+            <li>You've done accessibility or design-review QA against Figma frames</li>
+            <li>You've written about any of this in public</li>
           </ul>
         </section>
 
@@ -387,64 +377,36 @@
           <h2>Shape of the engagement</h2>
           <ul>
             <li>Contract through Deel, hourly, invoiced weekly, paid on time</li>
-            <li>Full-time or part-time both work. If you're a final-year aero student who ships, two focused days a week on defined workstreams is a real option — say so in your application</li>
-            <li><strong>Paid trial task first:</strong> half a day at your hourly rate, on real (anonymised) data, before any longer engagement</li>
-            <li>Mutual NDA before the trial, since it touches customer records</li>
-            <li>Start: as soon as the trial clears</li>
+            <li>Full-time, or as close as you can get, through the January launch; what happens after is decided in December, together. Part-time makes the build strand impossible — say so if that's you and we'll talk about a narrower QA-and-harness scope</li>
+            <li><strong>Paid trial task first:</strong> half a day at your hourly rate, on a sanitised slice of the real repo, before any longer engagement</li>
+            <li>Mutual NDA before the trial</li>
+            <li>Scoped access: staging, the repo, Linear. Production stays with the founders</li>
+            <li>Start: as soon as the trial clears — we want you in seat by mid-October</li>
           </ul>
         </section>
 
         <section class="block">
           <h2>Why take it</h2>
           <ul>
-            <li>The problem is genuinely unsolved. Nobody has built trustworthy structured ownership and maintenance history at scale in this market. The incumbents sell lists; we're building the record</li>
-            <li>A co-founder who has sold aircraft for three decades answering your domain questions in real time. That input is not available anywhere else</li>
-            <li>Paid properly from day one. Hourly, contracted, invoiced weekly, paid on time. No unpaid founder energy, no deferred anything</li>
-            <li>Real flexibility on hours, structured around defined workstreams rather than presence</li>
+            <li>You get to build the harness for a codebase that is genuinely agent-written end to end, with 1,700 issues of history to learn from and a launch date that makes it matter</li>
+            <li>A founder who runs twenty sessions a day and will argue with you about every rule — and change his mind when you're right</li>
+            <li>Paid properly from day one. Hourly, contracted, invoiced weekly. No unpaid founder energy, no deferred anything</li>
+            <li>Real flexibility on hours, structured around gates and suites rather than presence</li>
           </ul>
         </section>
 
         <section class="block">
           <h2>To apply</h2>
-          <p>Three things. Short is fine. Slides aren't required and CVs are optional.</p>
-          <p><strong>1. Something you shipped with AI in it.</strong> What it did, what broke, what you did about it.</p>
-          <p><strong>2. Two real extracts from our warehouse, both flagged the same way by our reconciliation engine.</strong> Bullets are fine, ~400 words is plenty.</p>
-          <p><strong>Extract A — a light jet, takeoff distance, from the manufacturer's information manual.</strong> Six of 127 rows the engine tagged <code>competing_verified_values</code>:</p>
-
-          <div class="tableWrap" role="region" aria-label="Extract A — takeoff distance, competing verified values" tabindex="0">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">ft</th>
-                  <th scope="col">weight lb</th>
-                  <th scope="col">press. alt ft</th>
-                  <th scope="col">OAT °C</th>
-                  <th scope="col">wind</th>
-                  <th scope="col">flap</th>
-                  <th scope="col">runway</th>
-                  <th scope="col">other conditions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>1,670</td><td>16,000</td><td>SL</td><td>−54</td><td>30 kt head</td><td>8</td><td>dry, no slope</td><td>IPS on</td></tr>
-                <tr><td>2,020</td><td>16,000</td><td>SL</td><td>0</td><td>30 kt head</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>2,020</td><td>16,000</td><td>0</td><td>−54</td><td>0 kt</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>2,080</td><td>16,000</td><td>1,000</td><td>−54</td><td>0 kt</td><td>15</td><td>wet, no slope</td><td>IPS on</td></tr>
-                <tr><td>2,270</td><td>18,740</td><td>1,000</td><td>−54</td><td>30 kt head</td><td>8</td><td>dry, no slope</td><td>IPS on</td></tr>
-                <tr><td>2,280</td><td>16,000</td><td>6,000</td><td>−54</td><td>0 kt</td><td>15</td><td>dry, no slope</td><td>IPS on, anti-skid on, lift dump operative, operative engine TO detent (ATR activated), inoperative engine windmilling, MSN 501-up</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p>Full set spans 1,670–9,030 ft. The engine picked 2,630 ft as the winner. The catalogue currently shows 3,410 ft.</p>
-          <p><strong>Extract B — same aircraft type, maximum landing weight.</strong> The manual yields 18,300 lb on some pages and 18,740 lb on others. The type certificate data sheet says 17,340 lb. The engine picked 17,340.</p>
-          <p>Three questions:</p>
-          <ul class="plain">
-            <li>a) Both extracts are flagged identically. Are they the same kind of problem? Treat each on its merits.</li>
-            <li>b) What should the pipeline store for each, and what should the schema look like?</li>
-            <li>c) Which of these figures would you refuse to put in front of a buyer, and why?</li>
-          </ul>
-          <p><strong>3. Your aviation credential.</strong> Licence type, issuing authority and hours; or degree and institution; or the operator you worked for and in what function.</p>
+          <p>Three things. Short is fine. CVs are optional.</p>
+          <p><strong>1. A <code>CLAUDE.md</code> you wrote for a real team.</strong> Paste it or link it. Then, in a few bullets: which rules earned their place through an incident, which one you'd delete tomorrow, and what you moved out of it and where.</p>
+          <p><strong>2. The harness problem.</strong> ~400 words, bullets are fine.</p>
+          <blockquote>
+            <p class="q">You inherit an agent-written codebase. The working guide is 700 lines. It contains a 370-line section granting the agent standing authorisation to open, review and merge PRs under conditions. There is a Stop hook that runs typecheck. Every other quality rule — "verify before declaring done", "never report success unverified", "paid extraction lanes have a daily cap", "apply migrations with <code>db push</code>, never with the MCP tool" — is prose. Releases go out several times a day. There is no authenticated e2e suite.</p>
+            <p class="q">a) What do you do in week one, and in what order? Be specific about what moves where.</p>
+            <p class="q">b) Which of those prose rules become hooks, which become CI, which stay prose — and why each.</p>
+            <p class="q">c) What's the first e2e test you write, and what has to exist before you can run it nightly?</p>
+          </blockquote>
+          <p><strong>3. Something you broke.</strong> A production incident you caused, caught or cleaned up. What happened, what you changed so it couldn't happen twice, and whether it did.</p>
           <p><strong>Process:</strong> application → 30-minute call → paid trial task → decision. We aim to come back on applications within 5 working days.</p>
           <p class="note"><em>We process applications through Tally, review them in Notion, and contract through Deel. We use what you send only to assess you for this role, keep it for up to 12 months, and don't share it further. To see, correct or delete what we hold, email <a href="mailto:hr@aipholdinginc.com">hr@aipholdinginc.com</a>.</em></p>
         </section>
@@ -454,7 +416,7 @@
 
   <section class="closing" aria-label="Apply">
     <div class="closing__in">
-      <p class="closing__line">If you fly <em>and</em> you build, this is one of the rarest jobs on the market — and you're already qualified for it.</p>
+      <p class="closing__line">If you've ever wished the agent would just <em>stop and check first</em>, this is the job where you make it.</p>
       <a class="btn btn--onDark" href="#apply">Apply →</a>
     </div>
   </section>
@@ -462,17 +424,14 @@
   <section class="embed" id="apply" aria-label="Application form">
     <div class="embed__in col">
       <div class="embed__k">Application form</div>
-      <div class="embed__frame">
-        <iframe
-          data-tally-src="https://tally.so/embed/VLWZa6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          loading="lazy"
-          width="100%"
-          height="766"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          title="Application form — AI Engineer, Aircraft Data"
-        ></iframe>
+      <div class="form-embed">
+        <!-- <<TALLY EMBED>> — once the QA & Agent-Workflow Tally form is built, paste its embed here:
+             <iframe data-tally-src="https://tally.so/embed/XXXXXX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                     loading="lazy" width="100%" height="766" frameborder="0" marginheight="0" marginwidth="0"
+                     title="Application form — QA & Agent-Workflow Engineer"></iframe>
+             <script async src="https://tally.so/widgets/embed.js"></script>
+             ...and delete the .placeholder div below. -->
+        <div class="placeholder">Application form embed goes here (&lt;&lt;TALLY&nbsp;EMBED&gt;&gt;).</div>
       </div>
     </div>
   </section>
@@ -506,6 +465,5 @@
       tick(); setInterval(tick, 1000);
     })();
   </script>
-  <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>

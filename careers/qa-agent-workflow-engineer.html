@@ -305,9 +305,9 @@
         <section class="block">
           <h2>How this codebase gets written</h2>
           <p>Almost none of it is typed by a human.</p>
-          <p>The platform (React front end, Postgres with row-level security, edge functions, a scraper fleet, LLM extraction pipelines) is built by Claude Code sessions running in parallel, each in its own git worktree, driven from Linear issues and merged through a release train that only moves when CI is green. More than 1,700 issues have gone through that loop since May. It ships several changes a day.</p>
+          <p>The platform (React front end, Postgres with row-level security, edge functions, a scraper fleet, LLM extraction pipelines) is built by Claude Code sessions running in parallel, each in its own git worktree, driven from Linear issues and merged through a release train that only moves when CI is green.</p>
           <p>That's the job's context and the job's problem. When an agent writes the code, product quality comes down to the quality of the harness around the agent: what it's told, what it's forced to check, what it can't do, and what has to be green before a human hits merge.</p>
-          <p>Right now that harness is a 700-line <code>CLAUDE.md</code>, sixteen skills, a couple of hooks, a Playwright suite covering nine screens with no authenticated flow, and a lot of discipline living in the founders' heads. It got us here. It won't get two founders, a data engineer and you safely through a launch.</p>
+          <p>Right now that harness is a very large <code>CLAUDE.md</code>, sixteen skills, a couple of hooks, a Playwright suite covering nine screens with no authenticated flow, and a lot of discipline living in the founders' heads.</p>
         </section>
 
         <section class="block">
@@ -316,7 +316,7 @@
           <p>Three strands, one person. We know that's a wide brief, so tell us which strand is your strongest and we'll build the role around it.</p>
           <p><strong>QA and release.</strong> You're the evidence behind the second gate: the human call to promote staging to production. You build the authenticated end-to-end suite (login and MFA, deal CRUD, uploads, briefing generation, exports, Stripe in test mode) and get it running automatically, at a cadence and against an environment you decide. You seed the data so it can be tested. You run the release smoke on staging and prod. You write defect reports that are reproductions, not impressions, and you re-test the fixes and say so. You think in edge cases (null input, unauthenticated, database read-only) and make the agent test them.</p>
           <p><strong>Agent workflow.</strong> You own <code>CLAUDE.md</code>, the skills, the hooks and the sub-agents, and you treat them as a product. You cut the working guide down to what an agent actually follows and move the rest into skills that load on demand. Every rule that has to hold (verify before declaring done, no unverified success reports, cost caps on paid lanes, migrations through the right path) you turn from prose into a hook that blocks. You build the evals that fail a merge. And you teach the rest of us, by example and by review, how to run a session so it lands the first time.</p>
-          <p><strong>Build.</strong> You're also the one engineer between the founders and the launch backlog. You run the loop (issue, plan, review, tests, QA, merge) on the Must-tier items that need a person, not a night shift: billing and access (Stripe checkout, entitlements, the free tier), tail-intelligence data fixes (provenance per field, the ownership golden set), and the pre-audit security items under the CTO's review. You won't type most of it. You decide what the agent builds, you catch what it gets wrong, and you own the result.</p>
+          <p><strong>Build.</strong> You run the loop (issue, plan, review, tests, QA, merge) on the Must-tier items that need a person, not a night shift: billing and access (Stripe checkout, entitlements, the free tier), tail-intelligence data fixes (provenance per field, the ownership golden set), and the pre-audit security items under the CTO's review. You won't type most of it. You decide what the agent builds, you catch what it gets wrong, and you own the result.</p>
           <p>If it works, we double down. If it doesn't, we kill it that week.</p>
         </section>
 
@@ -335,13 +335,14 @@
           <div class="callout" role="note">
             <p>Haven't run Claude Code (or a comparable coding agent) on a production codebase? Not a fit. Please don't apply.</p>
           </div>
-          <p>"I use it every day for my own projects" isn't the same thing, and the trial will find out.</p>
+          <p>"I use it every day for my own projects" isn't the same thing, and it shows.</p>
         </section>
 
         <section class="block">
           <h2>What you'll own</h2>
           <ul>
             <li>The agent harness: <code>CLAUDE.md</code>, <code>.claude/skills</code>, <code>.claude/agents</code>, hooks, settings, and how they change over time</li>
+            <li><strong>The night shift.</strong> The unattended overnight runs where agents work a queue of small, well-scoped issues and open one PR each, for a human to review in the morning. You take it over from the founders once you're in seat: the queue, the acceptance checks that decide an issue is safe to run without a human, the morning review of every PR and every stop, and the call on when autonomy widens (always after review, never up front)</li>
             <li>The authenticated e2e suite and seeded staging, green before every release candidate, on a cadence you define</li>
             <li>Release evidence: UAT notes on every PR, smoke on staging and prod, the deploy board</li>
             <li>The eval gates that stop AI-generated code merging when it's wrong in ways ordinary tests miss</li>
@@ -379,17 +380,16 @@
           <ul>
             <li>Contract through Deel, hourly, invoiced weekly, paid on time</li>
             <li>Full-time, or as close as you can get, through the January launch. What happens after, we decide together in December. Part-time makes the build strand impossible, so say so if that's you and we'll talk about a narrower QA-and-harness scope</li>
-            <li><strong>Paid trial task first:</strong> half a day at your hourly rate, on a sanitised slice of the real repo, before any longer engagement</li>
-            <li>Mutual NDA before the trial</li>
+            <li>Mutual NDA before we share the repo</li>
             <li>Scoped access: staging, the repo, Linear. Production stays with the founders</li>
-            <li>Start: as soon as the trial clears. We want you in the seat by mid-October</li>
+            <li>Start: as soon as we agree terms. We want you in the seat by mid-October</li>
           </ul>
         </section>
 
         <section class="block">
           <h2>Why take it</h2>
           <ul>
-            <li>You build the harness for a codebase that's genuinely agent-written end to end, with 1,700 issues of history to learn from and a launch date that makes it matter</li>
+            <li>You build the harness for a codebase that's genuinely agent-written end to end, with real history to learn from and a launch date that makes it matter</li>
             <li>A founder who runs twenty sessions a day and will argue with you about every rule, then change his mind when you're right</li>
             <li>You're early on something built to matter: small team, real product, a launch on the calendar, and every intention of being very good at this</li>
             <li>You get to sharpen at the frontier of how software and QA actually get done now, and come out fluent in it before the market is</li>
@@ -411,7 +411,7 @@
           </blockquote>
           <p><strong>3. Your QA methodology in practice.</strong> How you use TDD and CI/CD, where you draw the line between unit, integration, e2e and UAT, and any performance or security testing you've done.</p>
           <p><strong>4. Something you broke.</strong> A production incident you caused, caught or cleaned up. What happened, what you changed so it couldn't happen again, and whether it did.</p>
-          <p><strong>Process:</strong> application, then a 30-minute call, then the paid trial task, then a decision. We aim to come back within 5 working days.</p>
+          <p><strong>Process:</strong> application, then a 30-minute call, then a decision. We aim to come back within 5 working days.</p>
           <p class="note"><em>We process applications through Tally, review them in Notion, and contract through Deel. We use what you send only to assess you for this role, keep it for up to 12 months, and don't share it further. To see, correct or delete what we hold, email <a href="mailto:hr@aipholdinginc.com">hr@aipholdinginc.com</a>.</em></p>
         </section>
       </article>
